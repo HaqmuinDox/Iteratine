@@ -224,3 +224,37 @@ fun calcTotalRoutineTime(routine: Routine): Int {
     }
     return totalTime.toDuration(DurationUnit.SECONDS).inWholeMinutes.toInt()
 }
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun RoutineDetailScreen(routineId: Int?, onBack: () -> Unit) {
+    val routine = routines.find { it.id == routineId }
+
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text(routine?.name ?: "Unknown Routine") },
+                navigationIcon = {
+                    IconButton(onClick = onBack) {
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, null)
+                    }
+                }
+            )
+        }
+    ) { padding ->
+        Column(modifier = Modifier
+            .padding(padding).padding(horizontal = 50.dp)
+            .fillMaxSize()) {
+            if (routine != null) {
+                val startTime = routine.startTimestamp.toDuration(DurationUnit.MILLISECONDS)
+                val timeTaken = calcTotalRoutineTime(routine).toDuration(DurationUnit.MINUTES).inWholeMilliseconds.toDuration(DurationUnit.MILLISECONDS)
+                val endTime = startTime.plus(timeTaken)
+                Text(
+                    "%02d:%02d".format(startTime.inWholeHours, startTime.inWholeMinutes % 60).plus(" - ${"%02d:%02d".format(endTime.inWholeHours % 24, endTime.inWholeMinutes % 60)} (${calcTotalRoutineTime(routine)} min)"))
+                // Add more details here...
+            } else {
+                Text("Routine not found")
+            }
+        }
+    }
+}
