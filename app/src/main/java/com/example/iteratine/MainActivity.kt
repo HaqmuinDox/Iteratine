@@ -146,7 +146,21 @@ class MainActivity : ComponentActivity() {
                     ) {
                         items(routines) {
                             ListRoutines(it)
+
+                // 1. Create the controller
+                val navController = rememberNavController()
+
+                            }
                         }
+                    }
+
+                    // Route for the Details Page
+                    composable(
+                        route = "details/{routineId}",
+                        arguments = listOf(navArgument("routineId") { type = NavType.IntType })
+                    ) { backStackEntry ->
+                        val routineId = backStackEntry.arguments?.getInt("routineId")
+                        RoutineDetailScreen(routineId, onBack = { navController.popBackStack() })
                     }
                 }
             }
