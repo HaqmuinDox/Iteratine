@@ -16,12 +16,8 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8378252c-a047-458c-adc2-88b890b2a63b" name="Changes" comment="RoutineList: Days of the week, task-symbols, routines total duration">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
+    <list default="true" id="8378252c-a047-458c-adc2-88b890b2a63b" name="Changes" comment="Automatic changes, based on imports">
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/iteratine/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/iteratine/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/iteratine/Routine.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/iteratine/Routine.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -272,7 +268,95 @@
       <option name="project" value="LOCAL" />
       <updated>1773656023766</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="RoutineDetailsScreen added">
+      <option name="closed" value="true" />
+      <created>1773668170697</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1773668170697</updated>
+    </task>
+    <task id="LOCAL-00006" summary="made Routine.kt a data class again">
+      <option name="closed" value="true" />
+      <created>1773668218647</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1773668218647</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Changed Imports">
+      <option name="closed" value="true" />
+      <created>1773668244818</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1773668244818</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Changed testData for RoutineList">
+      <option name="closed" value="true" />
+      <created>1773668272204</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1773668272204</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Navigation for Routine-List to RoutineDetailsScreen">
+      <option name="closed" value="true" />
+      <created>1773668334162</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1773668334162</updated>
+    </task>
+    <task id="LOCAL-00010" summary="deleted old placeholder code (YoMama)">
+      <option name="closed" value="true" />
+      <created>1773668368220</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1773668368220</updated>
+    </task>
+    <task id="LOCAL-00011" summary="More Navigation (AiGnerataed ) code">
+      <option name="closed" value="true" />
+      <created>1773668413295</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1773668413295</updated>
+    </task>
+    <task id="LOCAL-00012" summary="added parameter to become clickable">
+      <option name="closed" value="true" />
+      <created>1773668436039</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1773668436039</updated>
+    </task>
+    <task id="LOCAL-00013" summary="added parameter to become clickable: Card-Modifier">
+      <option name="closed" value="true" />
+      <created>1773668472956</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1773668472956</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Fixing Alignment of RoutineList">
+      <option name="closed" value="true" />
+      <created>1773668528241</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1773668528241</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Automatic changes, based on imports">
+      <option name="closed" value="true" />
+      <created>1773668561246</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1773668561246</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -291,7 +375,18 @@
     <MESSAGE value="Made UI for Routines Page" />
     <MESSAGE value="Deleted unnecessary import modules" />
     <MESSAGE value="RoutineList: Days of the week, task-symbols, routines total duration" />
-    <option name="LAST_COMMIT_MESSAGE" value="RoutineList: Days of the week, task-symbols, routines total duration" />
+    <MESSAGE value="RoutineDetailsScreen added" />
+    <MESSAGE value="made Routine.kt a data class again" />
+    <MESSAGE value="Changed Imports" />
+    <MESSAGE value="Changed testData for RoutineList" />
+    <MESSAGE value="Navigation for Routine-List to RoutineDetailsScreen" />
+    <MESSAGE value="deleted old placeholder code (YoMama)" />
+    <MESSAGE value="More Navigation (AiGnerataed ) code" />
+    <MESSAGE value="added parameter to become clickable" />
+    <MESSAGE value="added parameter to become clickable: Card-Modifier" />
+    <MESSAGE value="Fixing Alignment of RoutineList" />
+    <MESSAGE value="Automatic changes, based on imports" />
+    <option name="LAST_COMMIT_MESSAGE" value="Automatic changes, based on imports" />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">
