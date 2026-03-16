@@ -137,6 +137,22 @@ class MainActivity : ComponentActivity() {
                 // 1. Create the controller
                 val navController = rememberNavController()
 
+                // 2. Define the NavHost
+                NavHost(navController = navController, startDestination = "home") {
+
+                    // Route for the Main List
+                    composable("home") {
+                        Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                            LazyColumn(
+                                modifier = Modifier.padding(innerPadding),
+                                contentPadding = PaddingValues(horizontal = 30.dp, vertical = 20.dp),
+                            ) {
+                                items(routines) { routine ->
+                                    // Pass a lambda to handle the click
+                                    ListRoutines(routine) {
+                                        navController.navigate("details/${routine.id}")
+                                    }
+                                }
                             }
                         }
                     }
