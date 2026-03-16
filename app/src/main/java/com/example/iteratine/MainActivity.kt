@@ -193,7 +193,7 @@ fun GreetingPreview() {
 }
 
 @Composable
-fun ListRoutines(routine: Routine) {
+fun ListRoutines(routine: Routine, onItemClick: () -> Unit) {
     val taskList = tasks
         .filter { it.parentRoutineID == routine.id }
 
