@@ -5,15 +5,20 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.lazy.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ModifierLocalBeyondBoundsLayout
 import androidx.compose.ui.text.style.*
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.iteratine.ui.theme.IteratineTheme
+import kotlin.time.Duration
 import kotlin.time.DurationUnit
 import kotlin.time.toDuration
 
@@ -29,8 +34,8 @@ val routines = listOf(
 )
 
 val tasks = listOf(
-    Task(1, "Task1", 4578, "\uD83D\uDE05", "Note1", 1),
-    Task(2, "Task2", 4578, "\uD83D\uDE07", "Note2", 2),
+    Task(1, "Task1", 4578, "\uD83E\uDEA5", "Note1", 1),
+    Task(2, "Task2", 4578, "\uD83C\uDF05", "Note2", 2),
     Task(3, "Task4", 4578, "\uD83D\uDE08", "Note1", 3),
     Task(4, "Task3", 4578, "\uD83D\uDE09", "Note2", 4),
     Task(5, "Task5", 4578, "\uD83D\uDE0A", "Note1", 5),
@@ -45,6 +50,23 @@ val tasks = listOf(
     Task(14, "Task14", 4578, "\uD83D\uDE03", "Note2", 6),
     Task(15, "Task15", 4578, "\uD83D\uDE04", "Note1", 7),
     Task(16, "Task16", 4578, "\uD83D\uDE05", "Note2", 8),
+    Task(1, "Task1", 4578, "\uD83E\uDEA5", "Note1", 1),
+    Task(2, "Task2", 4578, "\uD83C\uDF05", "Note2", 2),
+    Task(3, "Task4", 4578, "\uD83D\uDE08", "Note1", 3),
+    Task(4, "Task3", 4578, "\uD83D\uDE09", "Note2", 4),
+    Task(5, "Task5", 4578, "\uD83D\uDE0A", "Note1", 5),
+    Task(6, "Task6", 4578, "\uD83D\uDE0B", "Note2", 6),
+    Task(7, "Task7", 4578, "\uD83D\uDE19", "Note1", 7),
+    Task(8, "Task8", 4578, "\uD83D\uDE0D", "Note2", 8),
+    Task(9, "Task9", 4578, "\uD83D\uDE0F", "Note1", 1),
+    Task(10, "Task10", 4578, "\uD83D\uDE29", "Note2", 2),
+    Task(11, "Task11", 4578, "\uD83D\uDE00", "Note1", 3),
+    Task(12, "Task12", 4578, "\uD83D\uDE01", "Note2", 4),
+    Task(13, "Task13", 4578, "\uD83D\uDE02", "Note1", 5),
+    Task(14, "Task14", 4578, "\uD83D\uDE03", "Note2", 6),
+    Task(15, "Task15", 4578, "\uD83D\uDE04", "Note1", 7),
+    Task(16, "Task16", 4578, "\uD83D\uDE05", "Note2", 8),
+    Task(1, "Task1", 4578, "\uD83E\uDEA5", "Note1", 1),
 )
 
 class MainActivity : ComponentActivity() {
@@ -52,19 +74,16 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-
-
-
         setContent {
             IteratineTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                Scaffold(modifier = Modifier.fillMaxSize(),) { innerPadding ->
                     Greeting(
                         name = "YoMama",
                         modifier = Modifier.padding(innerPadding)
                     )
                     LazyColumn(
                         contentPadding = PaddingValues(
-                            horizontal = 8.dp,
+                            horizontal = 30.dp,
                             vertical = 100.dp
                         ),
                     ) {
@@ -106,18 +125,30 @@ fun ListRoutines(routine: Routine) {
 
     Card(
         modifier = Modifier
-            .padding(4.dp)
-            .fillMaxWidth()
-            .padding(horizontal = 8.dp)
+            .padding(all = 4.dp)
+            .padding(horizontal = 16.dp)
     ) {
         Row (
-            verticalAlignment = androidx.compose.ui.Alignment.CenterVertically
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.padding(horizontal = 20.dp)
         ) {
+            Column(
+                horizontalAlignment = Alignment.Start,
+                modifier = Modifier.width(250.dp)
+            ) {
+                Row {
+                    ListRoutineDays(routine)
+                }
+                Row {
+                    ListTasksInRoutine(taskList)
+                }
+            }
+
             Box(
                 modifier = Modifier
-                    .width(100.dp)
+                    .width(250.dp)
                     .height(100.dp),
-                contentAlignment = androidx.compose.ui.Alignment.Center // Centers both vertically and horizontally
+                contentAlignment = Alignment.Center // Centers both vertically and horizontally
             ) {
                 Text(
                     text = routine.name,
@@ -125,44 +156,71 @@ fun ListRoutines(routine: Routine) {
                     textAlign = TextAlign.Center
                 )
             }
-            val num = routine.startTimestamp.toDuration(DurationUnit.MILLISECONDS).inWholeMinutes.toInt()
-            Column(
-                horizontalAlignment = androidx.compose.ui.Alignment.Start
+
+            Box(
+                modifier = Modifier
+                    .fillMaxSize(),
+                contentAlignment = Alignment.TopEnd
             ) {
-                Row {
-                    for (day in routine.days) {
-                        Text(
-                            text = day.toString().substring(0,3),
-                            modifier = Modifier
-                                .padding(4.dp)
-                                .wrapContentWidth(androidx.compose.ui.Alignment.Start,  true)
-                        )
-                    }
-
-                }
-                Row {
-                    for (task in taskList) {
-                        ListTasksInRoutine(task)
-                    }
-                }
+                val totalTime = calcTotalRoutineTime(routine)
                 Text(
-
-                    text = num.toString().plus(" min"),
+                    text = totalTime.toString().plus(" min"),
                     modifier = Modifier.padding(4.dp)
                 )
-
             }
         }
     }
 }
 
-@Composable
-fun ListTasksInRoutine(task: Task) {
-    Text(
-        text = task.emoji,
-        modifier = Modifier
-            .padding(horizontal = 6.dp,),
-        fontSize = 24.sp,
 
-    )
+@Composable
+fun ListRoutineDays(routine: Routine) {
+    for (day in listOf(Day.MONDAY, Day.TUESDAY, Day.WEDNESDAY, Day.THURSDAY, Day.FRIDAY, Day.SATURDAY, Day.SUNDAY)) {
+        Text(
+            text = day.toString().substring(0,1),
+            modifier = Modifier
+                .padding(4.dp)
+                .width(25.dp)
+                .wrapContentWidth(Alignment.Start,  true)
+                .wrapContentHeight(Alignment.Top, false),
+            color = if (day in routine.days) Color.White else Color.Gray,
+            fontSize = 12.sp,
+        )
+    }
+
+
+
+}
+
+@Composable
+fun ListTasksInRoutine(taskList: List<Task>) {
+    val taskSublist = taskList.subList(0,3)
+    val modifier = Modifier
+        .padding(horizontal = 10.dp, vertical = 4.dp)
+        //.width(25.dp)
+        .wrapContentWidth(Alignment.Start,  true)
+        .wrapContentHeight(Alignment.Top, false).fillMaxWidth()
+    for (task in taskSublist) {
+        Text(
+            text = task.emoji,
+            modifier = modifier,
+            fontSize = 24.sp,
+        )
+    }
+    if (taskList.size > taskSublist.size)
+        Text(
+            text = "+".plus(taskList.size - taskSublist.size),
+            modifier = modifier,
+            fontSize = 24.sp
+        )
+
+}
+
+fun calcTotalRoutineTime(routine: Routine): Int {
+    val routineTasks = tasks.filter { it.parentRoutineID == routine.id  }
+    var totalTime = 0
+    for (task in routineTasks) {
+        totalTime += task.duration
+    }
+    return totalTime.toDuration(DurationUnit.SECONDS).inWholeMinutes.toInt()
 }
