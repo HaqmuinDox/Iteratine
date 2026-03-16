@@ -44,14 +44,50 @@ import kotlin.time.DurationUnit
 import kotlin.time.toDuration
 
 val routines = listOf(
-    Routine(1,"Morning routine1", 239084, listOf ( Day.MONDAY, Day.TUESDAY, Day.WEDNESDAY, Day.THURSDAY),),
-    Routine(2,"Morning routine2", 339084, listOf(Day.TUESDAY, Day.WEDNESDAY),),
-    Routine(3,"Morning routine3", 239085, listOf(Day.MONDAY, Day.WEDNESDAY),),
-    Routine(4,"Morning routine4", 339084, listOf(Day.MONDAY, Day.TUESDAY),),
-    Routine(5,"Morning routine5", 239084, listOf(Day.MONDAY, Day.TUESDAY, Day.WEDNESDAY, Day.THURSDAY, Day.FRIDAY, Day.SATURDAY, Day.SUNDAY),),
-    Routine(6,"Morning routine6", 339084, listOf(Day.MONDAY, Day.TUESDAY, Day.WEDNESDAY, Day.THURSDAY, Day.FRIDAY, Day.SATURDAY, Day.SUNDAY),),
-    Routine(7,"Morning routine7", 239084, listOf(Day.MONDAY),),
-    Routine(8,"Morning routine8", 339084, listOf(Day.TUESDAY, Day.WEDNESDAY, Day.THURSDAY, Day.FRIDAY, Day.SATURDAY, Day.SUNDAY),),
+    Routine(
+        1,
+        "Morning routine1",
+        239084,
+        listOf(Day.MONDAY, Day.TUESDAY, Day.WEDNESDAY, Day.THURSDAY)
+    ),
+    Routine(2, "Morning routine2", 6*60*60*1000, listOf(Day.TUESDAY, Day.WEDNESDAY)),
+    Routine(3, "Morning routine3", 8*60*60*1000, listOf(Day.MONDAY, Day.WEDNESDAY)),
+    Routine(4, "Morning routine4", 7*60*60*1000, listOf(Day.MONDAY, Day.TUESDAY)),
+    Routine(
+        5,
+        "Morning routine5",
+        239084,
+        listOf(
+            Day.MONDAY,
+            Day.TUESDAY,
+            Day.WEDNESDAY,
+            Day.THURSDAY,
+            Day.FRIDAY,
+            Day.SATURDAY,
+            Day.SUNDAY
+        )
+    ),
+    Routine(
+        6,
+        "Morning routine6",
+        339084,
+        listOf(
+            Day.MONDAY,
+            Day.TUESDAY,
+            Day.WEDNESDAY,
+            Day.THURSDAY,
+            Day.FRIDAY,
+            Day.SATURDAY,
+            Day.SUNDAY
+        )
+    ),
+    Routine(7, "Morning routine7", 239084, listOf(Day.MONDAY)),
+    Routine(
+        8,
+        "Morning routine8",
+        339084,
+        listOf(Day.TUESDAY, Day.WEDNESDAY, Day.THURSDAY, Day.FRIDAY, Day.SATURDAY, Day.SUNDAY)
+    ),
 )
 
 val tasks = listOf(
