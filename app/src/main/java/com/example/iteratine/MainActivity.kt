@@ -201,6 +201,8 @@ fun ListRoutines(routine: Routine, onItemClick: () -> Unit) {
         modifier = Modifier
             .padding(all = 4.dp)
             .padding(horizontal = 16.dp)
+            .clickable { onItemClick() },
+
     ) {
         Row (
             verticalAlignment = Alignment.CenterVertically,
