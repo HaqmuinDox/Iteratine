@@ -274,8 +274,9 @@ fun ListTasksInRoutine(taskList: List<Task>) {
     val modifier = Modifier
         .padding(horizontal = 10.dp, vertical = 4.dp)
         //.width(25.dp)
-        .wrapContentWidth(Alignment.Start,  true)
-        .wrapContentHeight(Alignment.Top, false).fillMaxWidth()
+        .wrapContentWidth(Alignment.Start, true)
+        .wrapContentHeight(Alignment.Top, false)
+        .fillMaxWidth()
     for (task in taskSublist) {
         Text(
             text = task.emoji,
