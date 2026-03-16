@@ -133,19 +133,6 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             IteratineTheme {
-                Scaffold(modifier = Modifier.fillMaxSize(),) { innerPadding ->
-                    Greeting(
-                        name = "YoMama",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                    LazyColumn(
-                        contentPadding = PaddingValues(
-                            horizontal = 30.dp,
-                            vertical = 100.dp
-                        ),
-                    ) {
-                        items(routines) {
-                            ListRoutines(it)
 
                 // 1. Create the controller
                 val navController = rememberNavController()
