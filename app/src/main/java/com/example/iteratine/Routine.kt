@@ -1,6 +1,6 @@
 package com.example.iteratine
 
-class Routine (
+data class Routine (
     val id: Int,
     val name: String,
     val startTimestamp: Long,
