@@ -170,7 +170,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Composable
+/*@Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     /*Card(
 
@@ -181,15 +181,15 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
         )
     }*/
 
-}
-
+}*/
+/*
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     IteratineTheme {
         Greeting("Android")
     }
-}
+}*/
 
 @Composable
 fun ListRoutines(routine: Routine, onItemClick: () -> Unit) {
